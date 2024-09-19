@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class IncidentService {
@@ -25,6 +26,8 @@ public class IncidentService {
     }
 
     private String generateIncidentId() {
-        
+        Random random = new Random();
+        int randomNumber = 10000 + random.nextInt(90000);
+        return "RMG" + randomNumber + LocalDateTime.now().getYear();
     }
 }
