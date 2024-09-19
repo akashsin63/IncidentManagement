@@ -1,7 +1,7 @@
 package com.Incident.IncidentMangement.Controller;
 
 import com.Incident.IncidentMangement.Dto.UserDto;
-import com.Incident.IncidentMangement.Dto.UserRequestDto;
+import com.Incident.IncidentMangement.Dto.IncidentDto;
 import com.Incident.IncidentMangement.model.User;
 import com.Incident.IncidentMangement.repo.UserRepository;
 import com.Incident.IncidentMangement.service.IUserService;

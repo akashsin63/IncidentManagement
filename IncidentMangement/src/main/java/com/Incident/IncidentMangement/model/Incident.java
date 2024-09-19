@@ -1,9 +1,12 @@
 package com.Incident.IncidentMangement.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
-
+@Entity
+@Table(name = "incident")
+@Data
 public class Incident extends Base {
     @Column(unique = true)
     @Id
