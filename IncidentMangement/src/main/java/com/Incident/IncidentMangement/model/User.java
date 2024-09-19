@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 //import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
-@AllArgsConstructor
+
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
 @Data
-
+@AllArgsConstructor
 public class User extends Base {
 
     @Column(nullable = false, unique = true)
@@ -35,4 +35,7 @@ public class User extends Base {
     private List<Incident> incidents = new ArrayList<>();
 
 
+    public User() {
+
+    }
 }

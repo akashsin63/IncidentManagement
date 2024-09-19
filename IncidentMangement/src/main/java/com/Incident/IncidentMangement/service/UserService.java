@@ -12,7 +12,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser(User user) {
+    public static User createUser(User user) {
         // Add any additional checks or transformations here
         return userRepository.save(user);
     }
