@@ -9,7 +9,8 @@ import java.util.List;
 
 //import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
 @AllArgsConstructor
-
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 @Data

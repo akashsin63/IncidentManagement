@@ -13,14 +13,15 @@ public class UserService {
     private UserRepository userRepository;
 
     public User createUser(User user) {
+        // Add any additional checks or transformations here
         return userRepository.save(user);
     }
-        public Optional<User> findByUsername (String username){
-            return userRepository.findByUsername(username);
-        }
 
-        public Optional<User> findByEmail (String email){
-            return userRepository.findByEmail(email);
-        }
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
     }
