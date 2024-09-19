@@ -26,9 +26,28 @@ public class IncidentController {
         incident.setStatus(incidentDto.getStatus());
         incident.setReporterName(incidentDto.getReporterName());
 
-        User user = userService.findByEmail(incidentDto.getReporterName()).orElseThrow(() -> new RuntimeException("user not found"))
+        User user = userService.findByEmail(incidentDto
+                .getReporterName()).
+                orElseThrow(() -> new RuntimeException("user not found"));
+
+        incident.setUser(user);
+
+        return incidentService.createIncident(incident);
     }
 
+    @PostMapping("/{incidentId}")
+    public Incident updateIncident(@PathVariable String incidentId, @RequestBody IncidentDto incidentDto){
+        Incident incident = incidentService.findByIncidentId(incidentId)
+                .orElseThrow(()-> new RuntimeException("incident not found"));
 
+        if(!incident.getStatus().equals("closed")){
+            incident.setDetails(incidentDto.getDetails());
+            incident.setPriority(incidentDto.getPriority());
+            incident.setStatus(incidentDto.getStatus());
 
+            return incidentService.updateIncident(incident);
+        }else{
+            throw new RuntimeException("closed incident can not be modified");
+        }
+    }
 }
